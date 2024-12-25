@@ -1,0 +1,18 @@
+{"english": {
+    "translation": {
+   
+      "Hello":"Hello",
+      " Content sharing that drives active learning community.":"eContent sharing that drives active learning community.",
+      "hero-sub-text":
+      "A cloud learning content engine that helps Universities and Schools to make informed curriculum-aligned learning content collection decisions using data from students’ learning behaviors."
+    }
+},
+"french": {
+    "translation": {
+        "Hello":"hi",
+      
+        " Content sharing that drives active learning community.":"Partage de contenu qui anime une communauté d'apprentissage active",
+         "hero-sub-text":"Un moteur de contenu d'apprentissage cloud qui aide les universités et les écoles à prendre des décisions éclairées sur la collecte de contenu d'apprentissage aligné sur le curriculum en utilisant les données sur les comportements d'apprentissage des étudiants."
+    }
+  }
+}

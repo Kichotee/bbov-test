@@ -1,0 +1,52 @@
+name: Deploy Qataloog Frontend to AWS S3
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_S3_BUCKET: qataloog-frontend-website
+  AWS_REGION: us-east-2
+  BUILD_DIR: dist
+  REACT_APP_BASEURL: https://api.qataloog.com/api/v1
+  REACT_APP_CLIENT_ID: 312137828646-dc8tqu60en193sl6ima4j0r1ou2lv7q2.apps.googleusercontent.com
+  REACT_APP_CLIENT_SECRET: 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
+  REACT_APP_STRIPE_KEY: pk_live_51L3fQZBwZIjmiFaPm4vXds8SCgnnsLVhhzy2xPtXKMhTJi5O85GyVnb6QDMw6QivLIVTWxJR8i6iQ369mBiJZ1GG00FRh1WqZB
+  REACT_APP_STRIPE_SECRET: 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
+  REACT_APP_ZENDESK_KEY: 35ce6e94-1853-4feb-8465-acf5d73a680d
+  REACT_APP_FLW_KEY: FLWPUBK-a915a3b08160cd9295736a3f84c8111c-X
+  REACT_APP_SENTRY_KEY: https://502944b8e32d4e099d3a5b2e1ea12123@o4505152352223232.ingest.sentry.io/4505172087668736
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --delete
+        env:
+          AWS_REGION: ${{ env.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ env.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: ${{ env.BUILD_DIR }}
+          REACT_APP_BASEURL: ${{ env.REACT_APP_BASEURL }}
+          REACT_APP_CLIENT_ID: ${{ env.REACT_APP_CLIENT_ID }}
+          REACT_APP_CLIENT_SECRET: ${{ env.REACT_APP_CLIENT_SECRET }}
+          REACT_APP_STRIPE_KEY: ${{ env.REACT_APP_STRIPE_KEY }}
+          REACT_APP_STRIPE_SECRET: ${{ env.REACT_APP_STRIPE_SECRET }}
+          REACT_APP_ZENDESK_KEY: ${{ env.REACT_APP_ZENDESK_KEY }}
+          REACT_APP_FLW_KEY: ${{ env.REACT_APP_FLW_KEY }}
