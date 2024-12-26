@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import { useDeals } from "@/hooks/useDeals";
 import ModifiedDialog from "@/shared/Dialog/ModifiedDialog";
 import ControlledOutlineInput from "@/shared/Input/controlledOutlineInput";
+import ModifiedControlledSelect from "@/shared/Select/ControlledSelect";
+import { leadStatuses } from "./board-container";
 
 type Props = {
   open: boolean;
@@ -51,7 +53,12 @@ export const EditDealModal = ({ open, onClose,   }: Props) => {
     toast.success("Deal updated")
     onClose()
   }
-
+const options=leadStatuses.map((data)=>{
+    return {
+        label:data,
+        value:data
+    }
+})
   return (
     <ModifiedDialog  open={open} onClose={onClose} actionText="Edit" onAction={updateDeal}>
       <div className="flex flex-col gap-2 ">
@@ -74,10 +81,11 @@ export const EditDealModal = ({ open, onClose,   }: Props) => {
           fullWidth
           label="Description"
         />
-        <ControlledOutlineInput 
+        <ModifiedControlledSelect 
           defaultValue={deal?.stage}
+          options={options}
         
-        control={control} name="stage" fullWidth label="Pipeline Stage" />
+        control={control} name="stage"  label="Pipeline Stage" />
       </div>
     </ModifiedDialog>
   );

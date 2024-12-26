@@ -12,17 +12,17 @@ export type DragState = {
   sourceBoard: null | LeadStatus;
   targetBoard: null | LeadStatus;
 };
+export const leadStatuses :LeadStatus[] = [
+  "Lead Generated",
+  "Contacted",
+  "Application Submitted",
+  "Application Under Review",
+  "Deal Finalized",
+  "Payment Confirmed",
+  "Completed",
+  "Lost",
+];
 const BoardContainer = ({ cards }: IProps) => {
-  const leadStatuses :LeadStatus[] = [
-    "Lead Generated",
-    "Contacted",
-    "Application Submitted",
-    "Application Under Review",
-    "Deal Finalized",
-    "Payment Confirmed",
-    "Completed",
-    "Lost",
-  ];
   // const leadGeneratedCards = cards.filter((deal) => {
   //   return deal.stage === "Lead Generated";
   // });

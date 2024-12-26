@@ -26,9 +26,9 @@ const OutlinedInput = React.forwardRef<HTMLInputElement, OutlinedInputProps>(
       <div
         className={`${props.type !== "checkbox" && "relative  w-full"} ${
           props.type === "checkbox" && "flex gap-2"
-        }`}
+        } `}
       >
-        <label htmlFor=""className="text-sm ">{label}</label>
+        <label htmlFor=""className="text-xs text-brand-primary/80 font-semibold">{label}</label>
         <div
           data-app-error={Boolean(error)}
           className={`${
