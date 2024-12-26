@@ -1,18 +1,20 @@
+import { useSearchParams } from "react-router-dom";
 import { useDeals } from "@/hooks/useDeals";
 import ModifiedDialog from "@/shared/Dialog/ModifiedDialog";
 import { getColorScheme } from "@/utils/color-scheme";
-import { useSearchParams } from "react-router-dom";
+import { LeadStatus } from "@/types";
 
 type Props = {
   open: boolean;
   onClose: () => void;
 };
 export const ViewDeal = ({ open, onClose }: Props) => {
-    
-  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const [searchParams] = useSearchParams();
   const { deals } = useDeals();
   const deal = deals?.find((x) => {
-    return x.id == searchParams.get("id")!;
+    // eslint-disable-next-line eqeqeq, @typescript-eslint/no-non-null-assertion
+    return x.id == Number(searchParams.get("id")!);
   });
   return (
     <ModifiedDialog onClose={onClose} actionText="Close" onAction={onClose} open={open}>
@@ -26,7 +28,7 @@ export const ViewDeal = ({ open, onClose }: Props) => {
                 {deal?.description}
             </p>
             <div className="flex gap-2 items-center">
-                <div className={`${getColorScheme(deal?.stage)} w-2 h-2 rounded-full`} />
+                <div className={`${getColorScheme(deal?.stage as LeadStatus)} w-2 h-2 rounded-full`} />
                 <p className={`  !bg-transparent`}>{deal?.stage}</p>
             </div>
         </div>

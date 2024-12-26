@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { BiX } from "react-icons/bi";
 import { IModifiedDialog } from "@/types";
 // import IconButton from "@/shared/Button/IconButton";
 import Button from "@/shared/Buttons/Button";
-import { BiX } from "react-icons/bi";
 // import CircularProgress from "@/shared/CircularProgress";
 
 const ModifiedDialog = (props: IModifiedDialog) => {
@@ -50,7 +51,7 @@ const ModifiedDialog = (props: IModifiedDialog) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="modified-dialog-content w-max  transform overflow-auto relative rounded-lg bg-white  text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="modified-dialog-content  w-[500px]  transform overflow-auto relative rounded-lg bg-white  text-left align-middle shadow-xl transition-all">
                 {!hideDialogTitle && (
                   <Dialog.Title className="py-3 px-6 border-b sticky top-0 bg-white z-10">
                     <div className="flex justify-between items-center font-semibold">

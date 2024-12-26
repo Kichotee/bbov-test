@@ -100,7 +100,7 @@ export type LeadStatus =
   | "Completed"
   | "Lost";
 
-export interface Deals {
+export type Deals= {
   id: number;
   client: string;
   product: string;

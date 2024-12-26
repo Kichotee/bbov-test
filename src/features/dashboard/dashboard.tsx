@@ -4,6 +4,7 @@ import React from "react";
 // import ReactApexChart from "react-apexcharts";
 import { BiCalendar, BiCaretDown, BiCaretUp, BiChevronDown } from "react-icons/bi";
 import { format } from "date-fns";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Header from "@/layout/header";
 import LineChart from "@/shared/Charts/LineChart";
 import DataTable from "@/shared/Table/DataTable";
@@ -13,8 +14,9 @@ import BoardContainer from "./components/board-container";
 import Button from "@/shared/Buttons/Button";
 import { useDeals } from "@/hooks/useDeals";
 import { Deals } from "@/types";
-import { useLocation, useSearchParams } from "react-router-dom";
 import { ViewDeal } from "./components/view-deal-modal";
+import { EditDealModal } from "./components/edit-deal-modal";
+import { TypeColumns } from "@/shared/Table/tableInterface";
 
 interface ColumnProps {
   label: string | number;
@@ -47,7 +49,7 @@ const Dashboard = () => {
     },
   ];
 
-  const columns = [
+  const columns: TypeColumns<Deals>[] = [
     {
       dataIndex: "client",
       filter: false,
@@ -81,7 +83,7 @@ const Dashboard = () => {
       title: "Created-at",
       sorter: false,
       render: (_, col) => {
-        return <Column label={format(col?.created, "yyyy-MM-dd")} className="text-sm" />;
+        return <Column label={format(col?.created as number, "yyyy-MM-dd")} className="text-sm" />;
       },
     },
     {
@@ -93,8 +95,8 @@ const Dashboard = () => {
         return (
           <DropDown
             links={[
-              { href: `${location.pathname}?action=view&id=${col.id}`, label: "View" },
-              { href: `${location.pathname}?action=edit`, label: "Edit" },
+              { href: `${location.pathname}?action=view&id=${col?.id}`, label: "View" },
+              { href: `${location.pathname}?action=edit&id=${col?.id}`, label: "Edit" },
               { href: `${location.pathname}?action=delete`, label: "Delete" },
             ]}
             buttonText="action"
@@ -222,6 +224,13 @@ const Dashboard = () => {
       </div>
       <ViewDeal
         open={currentModal == "view"}
+        onClose={() => {
+          setSearchParams();
+        }}
+      />
+       <EditDealModal
+        open={currentModal === "edit"}
+        
         onClose={() => {
           setSearchParams();
         }}

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { ITablePagination, ITablePaginationFunction } from "@/types/baseTableInterface";
-import { MenuOption } from "@/shared/Menu/type";
+import { ITablePagination, ITablePaginationFunction} from "@/types/base-table-interface";
+// import { MenuOption } from "@/shared/Menu/type";
 
 export type PrimitiveType = string | number | boolean | Date | null | undefined;
 
@@ -50,13 +50,14 @@ export interface IDataTable<TField extends ITableContraint> {
   onRowClick?: (x: DataSourceObjType<TField>) => void;
   stickyHeader?: boolean;
   onMenuClick?: (x: DataSourceObjType<TField>) => void;
-  menuOptions?: MenuOption[];
+  menuOptions?: [];
   menuIcon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>> & {
     title?: string | undefined;
   };
   menuAction?: "default" | "none";
 }
 
+export type OrderType = "asc" | "desc";
 export interface IEnhancedTableHead<TField extends ITableContraint> {
   columns: TypeColumns<TField>[];
   order: OrderType;
@@ -69,7 +70,6 @@ export interface IEnhancedTableHead<TField extends ITableContraint> {
   stickyHead?: boolean;
 }
 
-export type OrderType = "asc" | "desc";
 
 export interface ITableFooter {
   tableParams: ITablePagination;
