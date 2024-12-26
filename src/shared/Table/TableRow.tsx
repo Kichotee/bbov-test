@@ -1,7 +1,7 @@
 import React from "react";
-import { TableRowProps } from "./types";
 import { cva } from "class-variance-authority";
-import { classVariable } from "@/utils/classUtils";
+import { TableRowProps } from "./types";
+// import { classVariable } from "@/utils/classUtils";
 
 export const tableRowVariants = cva(
   " bg-neutral-white text-neutral-black dark:text-slate-900 hover:bg-[#fafbfd] cursor-pointer mb-1 border-b  ",

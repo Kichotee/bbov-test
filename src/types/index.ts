@@ -33,6 +33,10 @@ export interface IModifiedDialog extends IChildren {
   actionSeverity?: "error" | "secondary" | "primary" | "success";
   secActionSeverity?: "error" | "secondary" | "primary" | "success";
 }
+export type OptionType={
+  label:string;
+  value:string;
+}
 
 export interface ISuccessModal {
   open: boolean;

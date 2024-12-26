@@ -1,7 +1,7 @@
 import React from "react";
-import { TableHeaderCellProps } from "./types";
 import { cva } from "class-variance-authority";
-import { classVariable } from "@/utils/classUtils";
+import { TableHeaderCellProps } from "./types";
+// import { classVariable } from "@/utils/classUtils";
 
 export const tableHeadCellVariants = cva(
   " bg-neutral-white text-neutral-black dark:text-slate-900",
@@ -19,7 +19,7 @@ const TableHeadCell = React.forwardRef<HTMLTableCellElement, TableHeaderCellProp
     return (
       <th
         ref={ref}
-        className={classVariable(tableHeadCellVariants({ className, sizes }))}
+        className={tableHeadCellVariants({ className, sizes })}
         {...props}
       >
         {children}

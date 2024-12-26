@@ -1,7 +1,6 @@
 import React from "react";
 import { Menu, Popover } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
-import { FaCaretDown } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import { FaEllipsisH } from "react-icons/fa";
 
@@ -10,13 +9,14 @@ interface ILinks {
   label: string;
 }
 type DropDownProps = {
+  // eslint-disable-next-line react/no-unused-prop-types
   buttonText: string;
   links: ILinks[] | string;
   labelStyle?: string;
   buttonStyle?: string;
 };
 
-export const DropDown = ({ buttonText, links, labelStyle, buttonStyle }: DropDownProps) => {
+export const DropDown = ({  links, labelStyle, buttonStyle }: DropDownProps) => {
   const [active, setActive] = React.useState<boolean>(true);
   const { t } = useTranslation();
   
@@ -31,7 +31,7 @@ export const DropDown = ({ buttonText, links, labelStyle, buttonStyle }: DropDow
       >
        <FaEllipsisH/>
       </Popover.Button>
-      <Popover.Panel anchor="top" className="flex flex-col absolute gap-4 py-2 w-36 rounded-sm px-2 z-[1000] bg-white shadow left-0">
+      <Popover.Panel  className="flex flex-col absolute gap-4 py-2 w-36 rounded-sm px-2 z-[1000] bg-white shadow left-0">
         {/* check if type is sring or  array */}
         {typeof links !== "string" ? (
           links.map((link) => {

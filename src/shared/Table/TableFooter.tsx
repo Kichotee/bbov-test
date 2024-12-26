@@ -1,7 +1,7 @@
 import React from "react";
-import { TableFooterProps } from "./types";
 import { cva } from "class-variance-authority";
-import { classVariable } from "@/utils/classUtils";
+import { TableFooterProps } from "./types";
+
 
 export const tableFooterVariant = cva(
   " bg-neutral-white text-neutral-black dark:text-slate-900 hover:bg-slate-700   ",
@@ -20,7 +20,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
       <tfoot
         data-testid="shared-table-foot"
         ref={ref}
-        className={classVariable(tableFooterVariant({ className, sizes }))}
+        className={(tableFooterVariant({ className, sizes }))}
         {...props}
       >
         {children}

@@ -54,7 +54,7 @@ const ModifiedControlledSelect = <TFormValue extends FieldValues>(
             
             value={value}
             disabled={disabled}
-              error={Boolean(error)}
+              // error={Boolean(error)}
             onChange={(val) => {
               
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
