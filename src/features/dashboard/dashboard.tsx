@@ -114,7 +114,7 @@ const Dashboard = () => {
   const currentModal = searchParams.get("action");
  
   return (
-    <div className=" bg-white">
+    <div className=" bg-white dark:bg-neutral-black">
       <div className="flex flex-col flex-1 mb-2">
         <Header />
 
@@ -123,9 +123,9 @@ const Dashboard = () => {
             <div className="flex w-full flex-col pr-4 pt-3 gap-4">
               <div className="flex w-full justify-between items-center">
                 <h5 className="font-semibold text-lg ">Clients</h5>
-                <p className="text-xs text-neutral-bodyText">View all</p>
+                <p className="text-xs dark:text-white/80 text-neutral-bodyText">View all</p>
               </div>
-              <div className="flex justify-between text-neutral-bodyText items-center">
+              <div className="flex justify-between dark:text-white/90 text-neutral-bodyText items-center">
                 <div className="flex gap-2 items-center">
                   <div className="flex text-sm items-center gap-3">
                     <BiCalendar />
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 <h5 className="font-semibold  ">Recent Finances</h5>
                 <p className="text-xs text-neutral-bodyText">View all</p>
               </div>
-              <div className="bg-[#ddd]/20 p-1.5 flex gap-6  rounded-lg ">
+              <div className="bg-[#ddd]/20 dark:bg-white/50 p-1.5 flex gap-6  rounded-lg ">
                 <div className="rounded-full w-14 h-14 bg-gradient-to-l flex justify-center items-center  from-purple-800 to-blue-900 ">
                   <div className="w-12 grid place-items-center h-12 rounded-full bg-white">
                     <p className="font-medium">
@@ -165,8 +165,8 @@ const Dashboard = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 text-sm">
-                  <p className="text-dark">Total commissions,</p>
+                <div className="flex flex-col gap-2  text-sm">
+                  <p className="">Total commissions,</p>
                   <div className="flex items-center gap-2">
                     <p className="font-bold">$12,813</p>
                     <div className="flex  items-center text-green-400">
@@ -179,8 +179,8 @@ const Dashboard = () => {
               <ul className="flex flex-col w-full gap-4 text-sm font-poppins">
                 {finances.map((data) => {
                   return (
-                    <li className="grid grid-cols-3  *:whitespace-nowrap text-xs text-text-sub justify-between items-center gap-2">
-                      <p className="whitespace-nowrap font-semibold text-text-main">{data.name}</p>
+                    <li className="grid grid-cols-3  *:whitespace-nowrap text-xs dark:text-white/80 text-text-sub justify-between items-center gap-2">
+                      <p className="whitespace-nowrap font-semibold dark:text-white text-text-main">{data.name}</p>
                       <p className="justify-self-end">{data.quantity}</p>
                       <p className="flex items-center justify-self-end font-bold gap-2">
                         <p>{data.amount}</p>

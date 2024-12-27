@@ -4,13 +4,13 @@ import { DASHBOARD_SIDEBAR_LINKS, DASHBOARD_SIDEBAR_TOOLS_LINKS } from "./sideba
 
 const Sidebar = () => {
   return (
-    <aside className="sticky top-0 left-0 border-b shadow-md bg-white h-screen hidden w-[80px] p-3 sm:flex flex-col pl-8  lg:w-[256px] items-start transition-all duration-300">
+    <aside className="sticky top-0 left-0 border-b shadow-md bg-white dark:bg-neutral-black h-screen hidden w-[80px] p-3 sm:flex flex-col pl-8  lg:w-[256px] items-start transition-all duration-300">
       <div className="flex items-center gap-2 px-1 py-3  ">
         <h4>Axis Travels</h4>
         {/* <img src="/qataloog.png" className="w-1/4 md:w-[10rem]" alt="" /> */}
       </div>
       <div className="py-8 w-full border-b ">
-      <h4 className="px-3.5 text-xs pb-3 text-text-sub uppercase">
+      <h4 className="px-3.5 text-xs pb-3 dark:text-white/80 text-text-sub uppercase">
           Menu
         </h4>
         <div className=" flex flex-col gap-1.5 ">

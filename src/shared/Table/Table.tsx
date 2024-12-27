@@ -41,7 +41,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       }
     };
     return (
-      <table ref={ref} className={`bg-neutral-white rounded-md overflow-hidden shadow-none text-neutral-black relative dark:text-slate-900 min-w-full table-border-spacing  ${sizeFn(sizes!)} ${className} `} {...props}>
+      <table ref={ref} className={`bg-neutral-white dark:bg-black rounded-md overflow-hidden shadow-none text-neutral-black relative dark:text-slate-900 min-w-full table-border-spacing  ${sizeFn(sizes!)} ${className} `} {...props}>
         {children}
       </table>
     );

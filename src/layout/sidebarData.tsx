@@ -21,7 +21,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
     key: "home",
     label: "Home",
-    path: "/dahboard/home",
+    path: "/dashboard/home",
     icon: <BiGridAlt size={18} />,
     allowedRoles: [0],
     visible: true,

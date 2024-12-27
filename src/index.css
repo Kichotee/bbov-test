@@ -33,6 +33,15 @@
     @apply md:text-[1rem] text-sm text-text-sub font-normal leading-[1.625rem]
 }
 .paragraphs-header{
-    @apply md:text-[1.875rem] text-xl mb-8 font-medium md:font-semibold leading-[2.75rem] 
-   
+    @apply md:text-[1.875rem] text-xl mb-8 font-medium md:font-semibold leading-[2.75rem]   
+}
+
+:root{
+    
+}
+
+@media(prefers-color-scheme:dark){
+    :root{
+
+    }
 }

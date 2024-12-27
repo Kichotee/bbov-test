@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
-import { TableCellProps } from "./types";
 import { cva } from "class-variance-authority";
+import { TableCellProps } from "./types";
 // import { classVariable } from "@/utils/classUtils";
 
 export const tableCellVariants = cva(
@@ -22,7 +22,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
         data-testid="shared-table-cell"
         ref={ref}
         width={width}
-        className={`bg-transparent text-neutral-black py-3 dark:text-slate-900 max-h-6 px-2 first:px-3 last:px-3 ${className}`}
+        className={`bg-transparent text-neutral-black py-3 dark:!text-white max-h-6 px-2 first:px-3 last:px-3 ${className}`}
         {...props}
       >
         {children}
