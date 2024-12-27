@@ -27,19 +27,19 @@ export const BoardCard = ({ dragStart, client, product, boardTitle, id }: Props)
         // onDragEnd={() => {
         //   return dragEnd(card.id);
         // }}
-        className="cursor-pointer w-full bg-white py-2 px-3 relative z-10 flex rounded-md flex-col gap-3 border "
+        className="cursor-pointer w-full dark:bg-neutral-black bg-white py-2 px-3 relative z-10 flex rounded-md flex-col gap-2 lg:gap-3 border dark:border-slate-500 "
       >
         <div className="flex justify-between items-center">
-          <h2 className="text-xs text-text-sub">{client}</h2>
+          <h2 className="lg:text-xs text-[10px] leading-3  dark:text-white/80 text-text-sub">{client}</h2>
           <button
             onClick={() => {
               openEditCard(id);
             }}
           >
-            <BiPencil className="text-text-sub" />
+            <BiPencil className="text-text-sub dark:text-white/80" />
           </button>
         </div>
-        <h2 className="text-sm text-text-main">{product}</h2>
+        <h2 className="lg:text-sm text-xs dark:text-white/80 text-text-main">{product}</h2>
       </div>
   );
 };

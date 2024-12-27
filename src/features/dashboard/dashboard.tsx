@@ -118,16 +118,16 @@ const Dashboard = () => {
       <div className="flex flex-col flex-1 mb-2">
         <Header />
 
-        <div className="grid grid-cols-[3fr_1fr] w-full justify-between">
+        <div className="lg:grid flex flex-col grid-cols-1 lg:grid-rows-auto lg:grid-cols-[3fr_1fr]  w-full justify-between">
           <div className="border-b w-full">
             <div className="flex w-full flex-col pr-4 pt-3 gap-4">
-              <div className="flex w-full justify-between items-center">
-                <h5 className="font-semibold text-lg ">Clients</h5>
+              <div className="flex w-full  justify-between items-center">
+                <h5 className="font-semibold text-text-main dark:text-neutral-white/80 lg:text-lg ">Clients</h5>
                 <p className="text-xs dark:text-white/80 text-neutral-bodyText">View all</p>
               </div>
-              <div className="flex justify-between dark:text-white/90 text-neutral-bodyText items-center">
+              <div className="flex flex-wrap justify-between dark:text-white/90 text-neutral-bodyText items-center">
                 <div className="flex gap-2 items-center">
-                  <div className="flex text-sm items-center gap-3">
+                  <div className="flex lg:text-sm text-xs items-center gap-3">
                     <BiCalendar />
                     <p>5 Jun, 2022 - 5 Jul,2022</p>
                     <BiChevronDown />
@@ -151,25 +151,25 @@ const Dashboard = () => {
               <LineChart />
             </div>
           </div>
-          <div className="border px-4 py-3">
+          <div className="lg:border border-b px-4 py-3">
             <div className="flex flex-col gap-4">
               <div className="flex w-full justify-between items-center">
                 <h5 className="font-semibold  ">Recent Finances</h5>
                 <p className="text-xs text-neutral-bodyText">View all</p>
               </div>
-              <div className="bg-[#ddd]/20 dark:bg-white/50 p-1.5 flex gap-6  rounded-lg ">
+              <div className="bg-[#ddd]/20  p-1.5 flex gap-6  rounded-lg ">
                 <div className="rounded-full w-14 h-14 bg-gradient-to-l flex justify-center items-center  from-purple-800 to-blue-900 ">
-                  <div className="w-12 grid place-items-center h-12 rounded-full bg-white">
+                  <div className="w-12 grid  text-text-main dark:bg-gray-500 dark:text-white/80 place-items-center h-12 rounded-full bg-white">
                     <p className="font-medium">
                       32<sup>%</sup>
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2  text-sm">
+                <div className="flex flex-col gap-2 text text-text-main dark:text-white/80 text-sm">
                   <p className="">Total commissions,</p>
                   <div className="flex items-center gap-2">
                     <p className="font-bold">$12,813</p>
-                    <div className="flex  items-center text-green-400">
+                    <div className="flex  items-center dark:text-green-300 text-green-400">
                       <BiCaretUp size={24} />
                       <p>12%</p>
                     </div>
@@ -198,7 +198,7 @@ const Dashboard = () => {
           </div>
           <div className="col-span-2 py-4">
             <div className="flex flex-col gap-3">
-              <div className="flex w-full justify-between items-center">
+              <div className="flex w-full text-text-main dark:text-white/80 justify-between items-center">
                 <h5 className="font-semibold  ">Pipelines</h5>
                 <Button
                   onClick={() => {

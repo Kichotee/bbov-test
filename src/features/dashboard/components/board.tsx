@@ -27,12 +27,12 @@ export const Board = ({ title, cards, dragStart, dragOver, handleDrop, dragState
       }}
       className={`rounded-xl ${
         dragState.targetBoard == title && "bg-gray-300 z-50"
-      } bg-white duration-500 border relative  overflow-hidden h-full min-w-[16rem]`}
+      } bg-white dark:bg-neutral-black duration-500 dark:border-slate-500 border relative  overflow-hidden h-full lg:min-w-[16rem]`}
     >
-      <div className={`rounded-t-xl ${getColorScheme(title)} py-4 px-3 bg- flex items-center`}>
+      <div className={`rounded-t-xl text-xs lg:text-sm ${getColorScheme(title)} py-4 px-3 bg- flex items-center`}>
         {title}
       </div>
-      <div className=" border-x px-4   py-2 overflow-y-auto  border-b border-stroke flex flex-col gap-2.5 h-[20rem]">
+      <div className=" border-x px-4 dark:border-slate-500   py-2 overflow-y-auto  border-b border-stroke flex flex-col gap-2.5 h-[10rem] lg:h-[20rem]">
         {cards.map((card, i) => {
           return (
             <BoardCard

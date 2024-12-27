@@ -102,7 +102,7 @@ const BoardContainer = ({ cards }: IProps) => {
   // };
   return (
     <div className="">
-      <div className="grid grid-cols-4 gap-4 overflow-x-auto min-h-[20rem]">
+      <div className="grid grid-cols-2 md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-4 gap-4 overflow-x-auto min-h-[20rem]">
         {leadStatuses.sort().map((data) => {
           return (
             <Board
