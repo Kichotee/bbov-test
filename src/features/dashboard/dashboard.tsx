@@ -114,11 +114,11 @@ const Dashboard = () => {
   const currentModal = searchParams.get("action");
  
   return (
-    <div className=" bg-white dark:bg-neutral-black">
+    <><div className=" bg-white dark:bg-neutral-black">
       <div className="flex flex-col flex-1 mb-2">
         <Header />
 
-        <div className="lg:grid flex flex-col grid-cols-1 lg:grid-rows-auto lg:grid-cols-[3fr_1fr]  w-full justify-between">
+        <div className="lg:grid flex flex-col gap-3 grid-cols-1 lg:grid-rows-auto lg:grid-cols-[3fr_1fr]  w-full justify-between">
           <div className="border-b w-full">
             <div className="flex w-full flex-col pr-4 pt-3 gap-4">
               <div className="flex w-full  justify-between items-center">
@@ -199,11 +199,11 @@ const Dashboard = () => {
           <div className="col-span-2 py-4">
             <div className="flex flex-col gap-3">
               <div className="flex w-full text-text-main dark:text-white/80 justify-between items-center">
-                <h5 className="font-semibold  ">Pipelines</h5>
+                <h5 className="font-semibold text-text-main dark:text-neutral-white/80 ">Pipelines</h5>
                 <Button
                   onClick={() => {
                     return setBoard(!board);
-                  }}
+                  } }
                 >
                   Switch
                 </Button>
@@ -211,31 +211,28 @@ const Dashboard = () => {
               {board ? (
                 <BoardContainer cards={deals as Deals[]} />
               ) : (
-                <DataTable
-                  dataSource={deals as Deals[]}
-                  columns={columns}
-                  tableParams={tableParams}
-                  setTableParams={setTableParams}
-                />
+                <div className="max-w-[90vw] overflow-x-scroll lg:max-w-[85vw] lg:overflow-x-hidden ">
+                  <DataTable
+                    dataSource={deals as Deals[]}
+                    columns={columns}
+                    tableParams={tableParams}
+                    setTableParams={setTableParams} />
+                </div>
               )}
             </div>
           </div>
         </div>
       </div>
-      <ViewDeal
+    </div><ViewDeal
         open={currentModal == "view"}
         onClose={() => {
           setSearchParams();
-        }}
-      />
-       <EditDealModal
+        } } /><EditDealModal
         open={currentModal === "edit"}
-        
+
         onClose={() => {
           setSearchParams();
-        }}
-      />
-    </div>
+        } } /></>
   );
 };
 

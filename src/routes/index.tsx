@@ -6,13 +6,14 @@ import { publicRoutes } from "./protected";
 
 import RequireAuth from "@/shared/RequireAuth/require-auth";
 import Layout from "@/layout/layout";
+import Redirect from "@/shared/RequireAuth/redirect-home";
 
 
 
 export default () => {
   // const auth = useAuth();
   const commonRoutes = [
-    { path: "/", element: <Landing /> },
+    { path: "/", element: <Redirect/>},
     // { path: "/dashboard", element: <Dashboard /> },
     // { path: "/login", element: <Login /> },
     // { path: "/signup-successful", element: <SignupSuccess /> },
