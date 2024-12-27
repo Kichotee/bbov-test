@@ -3,14 +3,22 @@ import { Switch } from "@headlessui/react";
 import { useState } from "react";
 
 const ThemeToggle = () => {
+
+
   const theme = localStorage.getItem("theme");
   const [enabled, setEnabled] = useState(theme);
   function handleChange() {
+    console.log(window.matchMedia('(prefers-color-scheme: light)').matches)
     if (theme === "theme-light") {
       localStorage.setItem("theme", "theme-dark");
       setEnabled("theme-dark");
-      console.log(theme)
+      document.documentElement.classList.remove("dark")
+      
+      // console.log(theme)
+      // console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
     } else {
+      
+      document.documentElement.classList.add("dark")
       localStorage.setItem("theme", "theme-light");
       setEnabled("theme-light");
     }

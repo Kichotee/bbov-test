@@ -36,3 +36,14 @@ export interface OutlinedInputProps extends InputBaseProps, OutlinedInputFormPro
   autoCompleteClassName?: string;
   containerRef?: React.MutableRefObject<HTMLDivElement | null>;
 }
+
+interface SelectInputFormProps {
+  label?: string;
+  options?: OptionType[];
+  helperText?: string | React.ReactNode;
+  FormHelperTextProps?: FormHelperTextProps;
+  hasNextPage?: boolean;
+  fetchNextPage?: () => void;
+}
+export type SelectInputProps = React.SelectHTMLAttributes<HTMLSelectElement> & SelectInputFormProps;
+

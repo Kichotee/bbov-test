@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "@/store";
 import "@/config/i18n";
 import { DealsProvider } from "./deals-context";
+// eslint-disable-next-line import/no-extraneous-dependencies, import/order
+import { Toaster } from "react-hot-toast";
 
 // import Layout from "@/layout/layout";
 // const {user} = useSelector(state=>{return state.user})
@@ -14,6 +16,7 @@ interface AppProviderProviderProps {
 export const AppProvider = ({ children }: AppProviderProviderProps) => {
   return (
     <Provider store={store}>
+      <Toaster/>
       <Router>
         <DealsProvider>{children}</DealsProvider>
         {/* <Layout >

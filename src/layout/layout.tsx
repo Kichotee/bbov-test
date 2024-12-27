@@ -21,7 +21,7 @@ function Layout({ children }: ILayoutProps) {
           <Sidebar />
           <div className="flex flex-col flex-1">
             {/* <Header /> */}
-            <main className="flex-1 md:px-7 sm:px-2 px-5 pt-2 h-[calc(100vh-70px)] overflow-y-auto">
+            <main className="flex-1 md:px-7 bg-white dark:bg-neutral-black  text-white sm:px-2 px-5 pt-2 h-[calc(100vh-70px)] overflow-y-auto">
               {children}
             </main>
           </div>

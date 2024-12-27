@@ -6,7 +6,7 @@ import { Meta } from "@/types";
 const useTableParams = () => {
   const [tableParams, setTableParams] = React.useState<ITablePagination>({
     search: "",
-    q:"",
+  
     sort: "-createdAt",
 
     pageNumber: 1,
@@ -37,7 +37,7 @@ export const useHandleTableRemoteChange = ({
             ...prev,
             pagination: {
               ...prev,
-              total: meta?.total || 0,
+              total: meta?.pagination.total || 0,
               // totalPage: meta?.pagination?.totalPages || 1,
             },
           };

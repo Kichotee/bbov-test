@@ -4,7 +4,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
 // const { fontFamily } = require("tailwindcss/defaultTheme");
 // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
-const colors = require("tailwindcss/colors");
+import * as colors from "tailwindcss/colors";
 const PRIMARY = {
   primary: "#2712cb",
   secondary: "#d6eb14",
@@ -12,11 +12,11 @@ const PRIMARY = {
 };
 
 const NEUTRAL = {
-  black: "#191D24",
+  black: "#1d1d1d",
   white: "#FFFFFF",
   border: "#C9CFD9",
   bg: "#FAFAFA",
-  commonBg:"F9FAFB",
+  commonBg: "F9FAFB",
   bodyText: "#64728C",
   sideBar: "#0F2657",
   greyBg: "#F9FAFB",
@@ -44,7 +44,7 @@ const TINT = {
 };
 
 const SUCCESS = {
-  500:"#039855",
+  500: "#039855",
   150: "#065031",
   100: "#0EAD69",
   50: "#D5FCEB",
@@ -67,10 +67,9 @@ const BORDER = {
 };
 const TEXT = {
   main: "#2E2C34",
-  sub:"#5D5969",
-  blue:"#19184E",
-  offWhite:"#EBE7EF",
-  
+  sub: "#5D5969",
+  blue: "#19184E",
+  offWhite: "#EBE7EF",
 };
 
 const palette = {
@@ -106,22 +105,20 @@ const palette = {
   },
 };
 export default {
-  
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode:"class",
+  darkMode: "class",
   theme: {
     extend: {},
+
     colors: {
       ...colors,
       ...palette,
     },
     fontFamily: {
-      sans: ['Kumbh Sans', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-      poppins:["Poppins",  'helvetica','arial','sans serif'],
+      sans: ["Kumbh Sans", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+      poppins: ["Poppins", "helvetica", "arial", "sans serif"],
     },
   },
-  plugins: [
-   
-  ],
+  plugins: [],
 };

@@ -4,6 +4,7 @@ import React from "react";
 // import ReactApexChart from "react-apexcharts";
 import { BiCalendar, BiCaretDown, BiCaretUp, BiChevronDown } from "react-icons/bi";
 import { format } from "date-fns";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Header from "@/layout/header";
 import LineChart from "@/shared/Charts/LineChart";
 import DataTable from "@/shared/Table/DataTable";
@@ -13,8 +14,9 @@ import BoardContainer from "./components/board-container";
 import Button from "@/shared/Buttons/Button";
 import { useDeals } from "@/hooks/useDeals";
 import { Deals } from "@/types";
-import { useLocation, useSearchParams } from "react-router-dom";
 import { ViewDeal } from "./components/view-deal-modal";
+import { EditDealModal } from "./components/edit-deal-modal";
+import { TypeColumns } from "@/shared/Table/tableInterface";
 
 interface ColumnProps {
   label: string | number;
@@ -47,7 +49,7 @@ const Dashboard = () => {
     },
   ];
 
-  const columns = [
+  const columns: TypeColumns<Deals>[] = [
     {
       dataIndex: "client",
       filter: false,
@@ -81,7 +83,7 @@ const Dashboard = () => {
       title: "Created-at",
       sorter: false,
       render: (_, col) => {
-        return <Column label={format(col?.created, "yyyy-MM-dd")} className="text-sm" />;
+        return <Column label={format(col?.created as number, "yyyy-MM-dd")} className="text-sm" />;
       },
     },
     {
@@ -93,8 +95,8 @@ const Dashboard = () => {
         return (
           <DropDown
             links={[
-              { href: `${location.pathname}?action=view&id=${col.id}`, label: "View" },
-              { href: `${location.pathname}?action=edit`, label: "Edit" },
+              { href: `${location.pathname}?action=view&id=${col?.id}`, label: "View" },
+              { href: `${location.pathname}?action=edit&id=${col?.id}`, label: "Edit" },
               { href: `${location.pathname}?action=delete`, label: "Delete" },
             ]}
             buttonText="action"
@@ -112,20 +114,20 @@ const Dashboard = () => {
   const currentModal = searchParams.get("action");
  
   return (
-    <div className=" bg-white">
+    <div className=" bg-white dark:bg-neutral-black">
       <div className="flex flex-col flex-1 mb-2">
         <Header />
 
-        <div className="grid grid-cols-[3fr_1fr] w-full justify-between">
+        <div className="lg:grid flex flex-col grid-cols-1 lg:grid-rows-auto lg:grid-cols-[3fr_1fr]  w-full justify-between">
           <div className="border-b w-full">
             <div className="flex w-full flex-col pr-4 pt-3 gap-4">
-              <div className="flex w-full justify-between items-center">
-                <h5 className="font-semibold text-lg ">Clients</h5>
-                <p className="text-xs text-neutral-bodyText">View all</p>
+              <div className="flex w-full  justify-between items-center">
+                <h5 className="font-semibold text-text-main dark:text-neutral-white/80 lg:text-lg ">Clients</h5>
+                <p className="text-xs dark:text-white/80 text-neutral-bodyText">View all</p>
               </div>
-              <div className="flex justify-between text-neutral-bodyText items-center">
+              <div className="flex flex-wrap justify-between dark:text-white/90 text-neutral-bodyText items-center">
                 <div className="flex gap-2 items-center">
-                  <div className="flex text-sm items-center gap-3">
+                  <div className="flex lg:text-sm text-xs items-center gap-3">
                     <BiCalendar />
                     <p>5 Jun, 2022 - 5 Jul,2022</p>
                     <BiChevronDown />
@@ -149,25 +151,25 @@ const Dashboard = () => {
               <LineChart />
             </div>
           </div>
-          <div className="border px-4 py-3">
+          <div className="lg:border border-b px-4 py-3">
             <div className="flex flex-col gap-4">
               <div className="flex w-full justify-between items-center">
                 <h5 className="font-semibold  ">Recent Finances</h5>
                 <p className="text-xs text-neutral-bodyText">View all</p>
               </div>
-              <div className="bg-[#ddd]/20 p-1.5 flex gap-6  rounded-lg ">
+              <div className="bg-[#ddd]/20  p-1.5 flex gap-6  rounded-lg ">
                 <div className="rounded-full w-14 h-14 bg-gradient-to-l flex justify-center items-center  from-purple-800 to-blue-900 ">
-                  <div className="w-12 grid place-items-center h-12 rounded-full bg-white">
+                  <div className="w-12 grid  text-text-main dark:bg-gray-500 dark:text-white/80 place-items-center h-12 rounded-full bg-white">
                     <p className="font-medium">
                       32<sup>%</sup>
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 text-sm">
-                  <p className="text-dark">Total commissions,</p>
+                <div className="flex flex-col gap-2 text text-text-main dark:text-white/80 text-sm">
+                  <p className="">Total commissions,</p>
                   <div className="flex items-center gap-2">
                     <p className="font-bold">$12,813</p>
-                    <div className="flex  items-center text-green-400">
+                    <div className="flex  items-center dark:text-green-300 text-green-400">
                       <BiCaretUp size={24} />
                       <p>12%</p>
                     </div>
@@ -177,8 +179,8 @@ const Dashboard = () => {
               <ul className="flex flex-col w-full gap-4 text-sm font-poppins">
                 {finances.map((data) => {
                   return (
-                    <li className="grid grid-cols-3  *:whitespace-nowrap text-xs text-text-sub justify-between items-center gap-2">
-                      <p className="whitespace-nowrap font-semibold text-text-main">{data.name}</p>
+                    <li className="grid grid-cols-3  *:whitespace-nowrap text-xs dark:text-white/80 text-text-sub justify-between items-center gap-2">
+                      <p className="whitespace-nowrap font-semibold dark:text-white text-text-main">{data.name}</p>
                       <p className="justify-self-end">{data.quantity}</p>
                       <p className="flex items-center justify-self-end font-bold gap-2">
                         <p>{data.amount}</p>
@@ -196,7 +198,7 @@ const Dashboard = () => {
           </div>
           <div className="col-span-2 py-4">
             <div className="flex flex-col gap-3">
-              <div className="flex w-full justify-between items-center">
+              <div className="flex w-full text-text-main dark:text-white/80 justify-between items-center">
                 <h5 className="font-semibold  ">Pipelines</h5>
                 <Button
                   onClick={() => {
@@ -222,6 +224,13 @@ const Dashboard = () => {
       </div>
       <ViewDeal
         open={currentModal == "view"}
+        onClose={() => {
+          setSearchParams();
+        }}
+      />
+       <EditDealModal
+        open={currentModal === "edit"}
+        
         onClose={() => {
           setSearchParams();
         }}
