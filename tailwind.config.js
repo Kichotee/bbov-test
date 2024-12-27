@@ -4,7 +4,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
 // const { fontFamily } = require("tailwindcss/defaultTheme");
 // eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
-const colors = require("tailwindcss/colors");
+import * as colors from "tailwindcss/colors";
 const PRIMARY = {
   primary: "#2712cb",
   secondary: "#d6eb14",
