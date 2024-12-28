@@ -7,7 +7,7 @@ const ThemeToggle = () => {
   const theme = localStorage.getItem("theme");
   const [enabled, setEnabled] = useState(theme);
   function handleChange() {
-    console.log(theme)
+    console.log(theme);
     if (theme === "theme-light") {
       localStorage.setItem("theme", "theme-dark");
       setEnabled("theme-dark");

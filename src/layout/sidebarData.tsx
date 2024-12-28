@@ -1,7 +1,10 @@
 import React from "react";
-import { FaBook, FaCashRegister, FaCreditCard, FaHouse, FaUpload, FaVideo } from "react-icons/fa6";
+import {LuDatabase} from "react-icons/lu"
+import {BsBarChartLine, BsBookmark, BsMegaphone, BsTag} from "react-icons/bs"
 import {PiFileArchive, PiLightning, PiUsers} from "react-icons/pi"
-import { BiGridAlt } from "react-icons/bi"
+import {CiLocationOn} from "react-icons/ci"
+import {LiaLocationArrowSolid} from "react-icons/lia"
+import {  BiGridAlt } from "react-icons/bi"
 
 type SidebarLink = Array<{
   key: string;
@@ -61,51 +64,59 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   //   }]
   // },
   {
-    key: "dashboard",
-    label: "Dashboard",
-    path: "/auth/",
-    icon: <FaHouse size={18} />,
+    key: "pipeline",
+    label: "Pipeline",
+    path: "/auth/pipeline",
+    icon: <LuDatabase size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
-    key: "Uploads",
-    label: "Library",
-    path: "/auth/library",
-    icon: <FaBook size={18} />,
+    key: "Sales",
+    label: "Sales",
+    path: "/auth/sales",
+    icon: <BsTag size={18} />,
     allowedRoles: [0],
     visible: true,
   },
 
   {
-    key: "Uploads",
-    label: "Uploads",
-    path: "/auth/uploads",
-    icon: <FaUpload size={18} />,
+    key: "Atlas",
+    label: "Atlas",
+    path: "/auth/atlas",
+    icon: <BsBookmark size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
-    key: "Upload media",
-    label: "Upload media",
-    path: "/auth/upload-media",
-    icon: <FaVideo size={18} />,
+    key: "Finance",
+    label: "Finance",
+    path: "/auth/finance",
+    icon: <BsBarChartLine size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
-    key: "Earnings",
-    label: "Earnings",
-    path: "/auth/earnings",
-    icon: <FaCashRegister size={18} />,
+    key: "Sendup",
+    label: "Sendup",
+    path: "/auth/send-up",
+    icon: <BsMegaphone size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
-    key: "Withdrawal",
-    label: "Withdrawal",
-    path: "/auth/withdrawal",
-    icon: <FaCreditCard size={18} />,
+    key: "Atlas",
+    label: "Atlas",
+    path: "/auth/atlas",
+    icon: <CiLocationOn size={18} />,
+    allowedRoles: [0],
+    visible: true,
+  },
+  {
+    key: "Location",
+    label: "Location",
+    path: "/auth/location",
+    icon: <LiaLocationArrowSolid size={18} />,
     allowedRoles: [0],
     visible: true,
   },

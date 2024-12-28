@@ -5,6 +5,7 @@ import React from "react";
 import { BiCalendar, BiCaretDown, BiCaretUp, BiChevronDown } from "react-icons/bi";
 import { format } from "date-fns";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { Switch } from "@headlessui/react";
 import Header from "@/layout/header";
 import LineChart from "@/shared/Charts/LineChart";
 import DataTable from "@/shared/Table/DataTable";
@@ -211,8 +212,39 @@ const Dashboard = () => {
                     onClick={() => {
                       return setBoard(!board);
                     }}
+                    className="flex items-center text-xs gap-2 "
                   >
-                    Switch
+                    <div className="grid-cols-1 grid grid-rows-1 duration-200 relative">
+                      <p
+                        className={`col-span-1 absolute duraton-400 ${
+                          board ? "z-0 opacity-0" : "opacity-100 z-30"
+                        }`}
+                      >
+                        Table
+                      </p>
+                      <p className={`col-span-1  ${board ? "opacity-100 z-30" : "z-0 opacity-0"}`}>
+                        Board
+                      </p>
+                    </div>
+
+                    <Switch
+                      checked={board}
+                      onClick={() => {
+                        return setBoard(!board);
+                      }}
+                      className={`${
+                        board ? "bg-slate-200 shadow   border-transparent" : "bg-slate-300"
+                      }
+                          relative inline-flex h-[22px] w-[44px] shrink-0  inset-0 cursor-pointer rounded-full border-2  transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`${
+                          board ? "translate-x-5 bg-white" : "translate-x-0.5 border shadow-sm"
+                        }
+            pointer-events-none grid grid-cols-1 grid-rows-1 relative place-items-center bg-white h-[18px] w-[18px] transform rounded-full  shadow-lg ring-0 transition duration-200 ease-in-out`}
+                      />
+                    </Switch>
                   </Button>
                 </div>
                 {board ? (
