@@ -36,8 +36,8 @@ const InputBase = React.forwardRef<HTMLInputElement, InputBaseProps>(
           data-app-error={Boolean(error)}
           className={`${variantFn(variant)} ${fullWidthFn(
             fullWidth
-          )}  ${className} rounded-md text-xs bg-transparent  text-text-sub 
-        placeholder:text-slate-400 
+          )}  ${className} rounded-md text-xs bg-transparent  text-text-sub dark:text-white/80 
+        placeholder:text-slate-400 placeholder:dark:text-white/80
         data-[app-error=true]:border  data-[app-error=true]:border-error-100 
         disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-neutral-bg disabled:border-neutral-border
         focus:!outline-none `}

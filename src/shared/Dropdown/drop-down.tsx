@@ -22,7 +22,7 @@ export const DropDown = ({  links, labelStyle, buttonStyle }: DropDownProps) => 
   
 
   return (
-    <Popover className="relative">
+    <Popover className="relative ">
       <Popover.Button
         onClick={() => {
           return setActive(!active);
@@ -31,14 +31,14 @@ export const DropDown = ({  links, labelStyle, buttonStyle }: DropDownProps) => 
       >
        <FaEllipsisH/>
       </Popover.Button>
-      <Popover.Panel  className="flex flex-col absolute gap-4 py-2 w-36 rounded-sm px-2 z-[1000] bg-white shadow left-0">
+      <Popover.Panel  className="flex flex-col absolute gap-4 py-2 w-36  px-2 z-[1000] dark:bg-[#1d1d1d] dark:border dark:border-slate-600 rounded bg-white shadow left-0">
         {/* check if type is sring or  array */}
         {typeof links !== "string" ? (
           links.map((link) => {
             return (
               /* Use the `active` state to conditionally style the active item. */
-              <div key={link.href + link.label}>
-                <NavLink to={link.href} className={`${" text-black"} `}>
+              <div key={link.href + link.label} className="hover:underline duration-200">
+                <NavLink to={link.href} className={`${" text-black dark:text-white/80"} `}>
                   {link.label}
                 </NavLink>
               </div>

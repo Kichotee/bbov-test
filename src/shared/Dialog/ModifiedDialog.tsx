@@ -51,12 +51,12 @@ const ModifiedDialog = (props: IModifiedDialog) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="modified-dialog-content  w-[500px]  transform overflow-auto relative rounded-lg bg-white  text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="modified-dialog-content  w-[500px]  transform overflow-auto relative rounded-lg bg-white dark:bg-default-neutral-800  text-left align-middle shadow-xl transition-all">
                 {!hideDialogTitle && (
-                  <Dialog.Title className="py-3 px-6 border-b sticky top-0 bg-white z-10">
+                  <Dialog.Title className="py-3 px-6 border-b sticky top-0  z-10">
                     <div className="flex justify-between items-center font-semibold">
-                      <p className="text-neutral-black flex-1">{title || ""}</p>
-                      <Button onClick={onClose} className="outline-none border border-transparent hover:border-stone-400 duration-200 rounded"><BiX/></Button>
+                      <p className="text-neutral-black dark:text-white/80 flex-1">{title || ""}</p>
+                      <Button onClick={onClose} className="outline-none border border-transparent hover:border-stone-400 duration-200 text-text-main dark:text-white rounded"><BiX/></Button>
                     </div>
                   </Dialog.Title>
                 )}
@@ -67,7 +67,7 @@ const ModifiedDialog = (props: IModifiedDialog) => {
                   <div>{children}</div>
                 </Dialog.Description>
                 <div className="sticky bottom-0">
-                  <div className="flex justify-center gap-4 items-center bg-neutral-bg py-4 px-6 ">
+                  <div className="flex justify-center gap-4 items-center dark:bg-default-neutral-800 bg-neutral-bg py-4 px-6 ">
                     {/* {
                       <Button
                         variant="outlined"
@@ -97,7 +97,7 @@ const ModifiedDialog = (props: IModifiedDialog) => {
 
                     {actionText && (
                       <Button
-                        className="w-full text-white"
+                        className="w-full dark:text-white/70 text-white"
                         themeColor="secondary"
                         variant="contained"
                         onClick={() => {
