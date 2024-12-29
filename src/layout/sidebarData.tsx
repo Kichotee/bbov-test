@@ -32,7 +32,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
     key: "clients",
     label: "Clients",
-    path: "/dashboard/clients",
+    path: "/dashboard/home",
     icon: <PiUsers size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -41,7 +41,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
     key: "centers",
     label: "Centers",
-    path: "/dashboard/centers",
+    path: "/dashboard/home",
     icon: <PiFileArchive size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -49,7 +49,7 @@ export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
   {
     key: "activity",
     label: "Activity",
-    path: "/auth/activity",
+    path: "/dashboard/home",
     icon: <PiLightning size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -66,7 +66,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "pipeline",
     label: "Pipeline",
-    path: "/auth/pipeline",
+    path: "/dashboard/home",
     icon: <LuDatabase size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -74,7 +74,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Sales",
     label: "Sales",
-    path: "/auth/sales",
+    path: "/dashboard/home",
     icon: <BsTag size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -83,7 +83,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Atlas",
     label: "Atlas",
-    path: "/auth/atlas",
+    path: "/dashboard/home",
     icon: <BsBookmark size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -91,7 +91,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Finance",
     label: "Finance",
-    path: "/auth/finance",
+    path: "/dashboard/home",
     icon: <BsBarChartLine size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -99,7 +99,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Sendup",
     label: "Sendup",
-    path: "/auth/send-up",
+    path: "/dashboard/home",
     icon: <BsMegaphone size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -107,7 +107,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Atlas",
     label: "Atlas",
-    path: "/auth/atlas",
+    path: "/dashboard/home",
     icon: <CiLocationOn size={18} />,
     allowedRoles: [0],
     visible: true,
@@ -115,7 +115,7 @@ export const DASHBOARD_SIDEBAR_TOOLS_LINKS: SidebarLink = [
   {
     key: "Location",
     label: "Location",
-    path: "/auth/location",
+    path: "/dashboard/home",
     icon: <LiaLocationArrowSolid size={18} />,
     allowedRoles: [0],
     visible: true,

@@ -22,7 +22,7 @@ export const DropDown = ({  links, labelStyle, buttonStyle }: DropDownProps) => 
   
 
   return (
-    <Popover className="relative ">
+    <Popover className="relative z-50">
       <Popover.Button
         onClick={() => {
           return setActive(!active);
@@ -31,7 +31,7 @@ export const DropDown = ({  links, labelStyle, buttonStyle }: DropDownProps) => 
       >
        <FaEllipsisH/>
       </Popover.Button>
-      <Popover.Panel  className="flex flex-col absolute gap-4 py-2 w-36  px-2 z-[1000] dark:bg-[#1d1d1d] dark:border dark:border-slate-600 rounded bg-white shadow left-0">
+      <Popover.Panel  className="flex flex-col absolute  -top-2 gap-4 py-2 w-36  px-2 z-[1000] dark:bg-[#1d1d1d] dark:border dark:border-slate-600 rounded bg-white shadow lg:-left-24 -left-0">
         {/* check if type is sring or  array */}
         {typeof links !== "string" ? (
           links.map((link) => {

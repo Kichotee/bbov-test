@@ -250,7 +250,7 @@ const Dashboard = () => {
                 {board ? (
                   <BoardContainer cards={deals as Deals[]} />
                 ) : (
-                  <div className="max-w-[90vw] overflow-x-scroll lg:max-w-[85vw] lg:overflow-x-hidden ">
+                  <div className="max-w-[90vw] overflow-x-scroll lg:max-w-[85vw] relative z-10 lg:overflow-x-hidden ">
                     <DataTable
                       dataSource={deals as Deals[]}
                       columns={columns}
