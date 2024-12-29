@@ -20,10 +20,10 @@ export const ViewDeal = ({ open, onClose }: Props) => {
     <ModifiedDialog onClose={onClose} actionText="Close" onAction={onClose} open={open}>
       <div className="flex flex-col gap-3 ">
         <div className="flex flex-col gap-2">
-            <h2 className="font-bold text-xl">{deal?.product}</h2>
-            <p className="text-text-sub text-sm">{deal?.client}</p>
+            <h2 className="font-bold  text-text-main dark:text-text-offWhite text-xl">{deal?.product}</h2>
+            <p className="text-text-sub dark:text-white/80 text-sm">{deal?.client}</p>
         </div>
-        <div className="flex flex-col gap-3 text-xs items-start text-text-sub/80 ">
+        <div className="flex flex-col gap-3 text-xs items-start text-text-sub/80 dark:text-white/60 ">
             <p className="max-w-lg ">
                 {deal?.description}
             </p>

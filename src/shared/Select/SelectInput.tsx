@@ -9,10 +9,12 @@ const SelectInput = React.forwardRef<HTMLSelectElement, SelectInputProps>(
     const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
     return (
       <div className="">
-                <label htmlFor=""className="text-xs text-brand-primary/80 font-semibold">{props.label}</label>
+        <label htmlFor="" className="text-xs dark:text-blue-500 text-brand-primary/80 font-semibold">
+          {props.label}
+        </label>
 
         <select
-          className={` border rounded py-1 px-2 text-xs   text-text-sub peer focus:outline-none w-full  ${props.className}`}
+          className={` border rounded py-1 px-2 text-xs  bg-transparent dark:text-white/80 text-text-sub peer focus:outline-none w-full  ${props.className}`}
           name={name}
           id={id}
           ref={ref}

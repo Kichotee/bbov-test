@@ -48,7 +48,7 @@ function SidebarLink({ link }: ISidebarProps) {
       to={link.path}
       className={` ${
         pathname === link.path
-          ? " border-brand-primary dark:border-white dark:text-white/80 border rounded-md text-brand-primary/20 "
+          ? " bg-brand-primary/10 text-brand-primary dark:border-white dark:text-white/80 border rounded-md  "
           : `text-text-sub  dark:text-white/80 rounded hover:bg-grey-100/10`
       }    flex items-center gap-4  duration-200   pl-8 py-2 text-[14px] leading-[150%] `}
     >

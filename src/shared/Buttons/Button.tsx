@@ -7,7 +7,7 @@ const variantFn = (variantStyle = "") => {
     case "outlined":
       return " border-brand-primary rounded border bg-transparent";
     case "contained":
-      return "bg-brand-primary rounded";
+      return "bg-brand-primary dark:bg-brand-primary/70 rounded";
     case "text":
       return " bg-transparent text-text-main";
     default:
@@ -16,7 +16,7 @@ const variantFn = (variantStyle = "") => {
 const themeColorFn = (style = "") => {
   switch (style) {
     case "main":
-      return " text-white 1rem font-semibold px-8 py-2 rounded hover:bg-purple-700 duration-200";
+      return " text-white 1rem font-semibold px-8 py-2 rounded hover:bg-brand-primary/50 duration-200";
     case "dark":
       return "bg-text-main text-white duration-200";
 

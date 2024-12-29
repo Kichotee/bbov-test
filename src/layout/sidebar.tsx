@@ -4,7 +4,7 @@ import { DASHBOARD_SIDEBAR_LINKS, DASHBOARD_SIDEBAR_TOOLS_LINKS } from "./sideba
 
 const Sidebar = () => {
   return (
-    <aside className="sticky top-0 left-0 border-b shadow-md   bg-white dark:bg-neutral-black h-screen hidden w-[80px] p-3 lg:flex flex-col pl-8  lg:w-[256px] items-start transition-all duration-300">
+    <aside className="sticky top-0 left-0 border-b shadow-md   bg-white dark:bg-neutral-black h-screen  w-[80vw] p-3 lg:flex hidden flex-col pl-8  lg:w-[256px] items-start transition-all min-h-[100vh] duration-300">
       <div className="flex items-center gap-2 px-1 py-3  ">
         <h4>Axis Travels</h4>
         {/* <img src="/qataloog.png" className="w-1/4 md:w-[10rem]" alt="" /> */}
@@ -23,7 +23,7 @@ const Sidebar = () => {
           })}
         </div>
       </div>
-      <div className=" py-4">
+      <div className=" py-4 w-full">
         <h4 className="px-3.5 pb-3 text-xs text-text-sub uppercase">
           Tools
         </h4>
