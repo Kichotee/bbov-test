@@ -118,7 +118,7 @@ const Dashboard = () => {
     <>
       <div className=" bg-white dark:bg-neutral-black">
         <div className="flex flex-col flex-1 mb-2">
-          <Header />
+          {/* <Header /> */}
 
           <div className="lg:grid flex flex-col gap-3 grid-cols-1 lg:grid-rows-auto lg:grid-cols-[3fr_1fr]  w-full justify-between">
             <div className="border-b w-full">
@@ -250,7 +250,7 @@ const Dashboard = () => {
                 {board ? (
                   <BoardContainer cards={deals as Deals[]} />
                 ) : (
-                  <div className="max-w-[90vw] overflow-x-scroll lg:max-w-[85vw] relative z-10 lg:overflow-x-hidden ">
+                  <div className=" overflow-x-scroll lg:max-w-[85vw] relative z-10 lg:overflow-x-hidden ">
                     <DataTable
                       dataSource={deals as Deals[]}
                       columns={columns}
