@@ -178,7 +178,7 @@ const DataTable = <TField extends ITableContraint>(props: IDataTable<TField>) =>
     <>
       <div className="flex flex-col">
         <div className="">
-          <div className="inline-block min-w-full relative z-50 ">
+          <div className="inline-block min-w-full relative z-10 ">
             <div className="shadow rounded-lg">
               <TableContainer>
                 <Table className=" relative">
