@@ -40,6 +40,10 @@
     
 }
 
+body:has(.mobile-nav){
+    overflow-y: hidden;
+}
+
 @media(prefers-color-scheme:dark){
     :root{
 
