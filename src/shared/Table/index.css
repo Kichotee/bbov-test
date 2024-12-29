@@ -18,4 +18,8 @@
   td{
     height: 24px;
   }
+  tr,th,td{
+    border-bottom: 0px !important;
+    margin-bottom: 0px !important;
+  }
 }
