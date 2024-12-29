@@ -50,10 +50,10 @@ function SidebarLink({ link }: ISidebarProps) {
         pathname === link.path
           ? " bg-brand-primary/10 text-brand-primary dark:border-white dark:text-white/80 border rounded-md  "
           : `text-text-sub  dark:text-white/80 rounded hover:bg-grey-100/10`
-      }    flex items-center gap-4  duration-200   pl-8 py-2 text-[14px] leading-[150%] `}
+      }    flex items-center  gap-4  duration-200   pl-8 py-2 text-[14px] leading-[150%] `}
     >
       <span className="">{link.icon}</span>
-      <span className="hidden  lg:flex">{link.label}</span>
+      <span className="  lg:flex">{link.label}</span>
     </StyledLink>
   );
 }

@@ -12,7 +12,7 @@ import SidebarLink from "./sidebarLink";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <header className="lg:sticky relative w-full overflow-hidden z-10 top-0 dark:bg-neutral-black bg-white h-16 base-theme-container flex items-center border-b border-gray-200 justify-between">
+    <header className="lg:sticky relative md:px-7 px-2 w-full overflow-hidden z-50 top-0 dark:bg-neutral-black bg-white h-16 base-theme-container flex items-center border-b border-gray-200 justify-between">
       {/* left side */}
       <div className=" w-full flex gap-4 justify-between items-center">
         <span
@@ -36,8 +36,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className={`fixed z-50 top-0 left-0  -translate-x-[100vw] duration-200 ${sidebarOpen && "translate-x-[0] mobile-nav "} h-[100vh]`}>
-        <aside className="sticky top-0 left-0 border-b shadow-md    h-[110vh] bg-white dark:bg-neutral-black   w-[100vw] p-3 flex flex-col pl-8  lg:w-[256px] items-start transition-all min-h-[100vh] z-50 duration-300">
+     { <div className={`fixed  top-0 left-0 z-50 -translate-x-[100vw] duration-200 ${sidebarOpen && "translate-x-[0] mobile-nav "} min-h-[120vh]`}>
+        <aside className="sticky top-0 left-0 border-b shadow-md  z-[100]   h-[100vh] bg-white dark:bg-neutral-black   w-[100vw] p-3 flex flex-col pl-8   items-start transition-all  duration-300">
           <div className="flex items-center  w-full justify-between gap-2 px-1 py-4  ">
             <h4 className="text-text-main font-semibold dark:text-white/80">Axis Travels</h4>
             <button onClick={()=>{
@@ -80,7 +80,7 @@ const Header = () => {
             </div>
           </div>
         </aside>
-      </div>
+      </div>}
       {/* right side */}
     </header>
   );
