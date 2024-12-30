@@ -18,6 +18,7 @@ import { Deals } from "@/types";
 import { ViewDeal } from "./components/view-deal-modal";
 import { EditDealModal } from "./components/edit-deal-modal";
 import { TypeColumns } from "@/shared/Table/tableInterface";
+import { DeleteDealModal } from "./components/delete-modal";
 
 interface ColumnProps {
   label: string | number;
@@ -98,7 +99,7 @@ const Dashboard = () => {
             links={[
               { href: `${location.pathname}?action=view&id=${col?.id}`, label: "View" },
               { href: `${location.pathname}?action=edit&id=${col?.id}`, label: "Edit" },
-              { href: `${location.pathname}?action=delete`, label: "Delete" },
+              { href: `${location.pathname}?action=delete&id=${col?.id}`, label: "Delete" },
             ]}
             buttonText="action"
           />
@@ -272,6 +273,12 @@ const Dashboard = () => {
       />
       <EditDealModal
         open={currentModal === "edit"}
+        onClose={() => {
+          setSearchParams();
+        }}
+      />
+      <DeleteDealModal
+        open={currentModal === "delete"}
         onClose={() => {
           setSearchParams();
         }}

@@ -1,9 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable import/no-extraneous-dependencies */
 import { format, isValid } from "date-fns";
 import React from "react";
 // import { ThreeDotIcon } from "@/assets/svgs";
+import { BiMenu } from "react-icons/bi";
 import useMenu from "@/hooks/useMenu";
 // import IconButton from "@/shared/Button/IconButton";
 import { SortOrder } from "@/utils/constants";
@@ -26,7 +28,6 @@ import {
   TypeColumns,
 } from "./tableInterface";
 import Button from "../Buttons/Button";
-import { BiMenu } from "react-icons/bi";
 
 const DataTable = <TField extends ITableContraint>(props: IDataTable<TField>) => {
   const {
@@ -81,6 +82,7 @@ const DataTable = <TField extends ITableContraint>(props: IDataTable<TField>) =>
                   }
                   toggleMenu(e);
                 }
+              // eslint-disable-next-line @typescript-eslint/no-empty-function
               : () => {}
           }
         >
@@ -121,7 +123,7 @@ const DataTable = <TField extends ITableContraint>(props: IDataTable<TField>) =>
   const renderDataItems = () => {
     return dataSource?.map((row, rowIndex) => {
       // const key = dataKeys()[rowIndex];
-
+      
       return (
         <TableRow
           key={`${row?.id}-${rowIndex}-table-body`}
@@ -135,6 +137,7 @@ const DataTable = <TField extends ITableContraint>(props: IDataTable<TField>) =>
           {columns?.map((column, columnIndex) => {
             return (
               <TableCell
+              headers={column.dataIndex}
                 width={column?.width}
                 key={`${column.dataIndex}-${columnIndex}`}
                 className="whitespace-nowrap"

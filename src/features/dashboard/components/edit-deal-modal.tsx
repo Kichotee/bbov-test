@@ -60,7 +60,7 @@ const options=leadStatuses.map((data)=>{
     }
 })
   return (
-    <ModifiedDialog  open={open} onClose={onClose} actionText="Edit" onAction={updateDeal}>
+    <ModifiedDialog  open={open} onClose={onClose} actionText="Edit Deal" onAction={updateDeal}>
       <div className="flex flex-col gap-2 ">
         <ControlledOutlineInput 
           defaultValue={deal?.product}
