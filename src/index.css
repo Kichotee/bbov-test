@@ -40,7 +40,7 @@
     
 }
 
-main:has(.mobile-nav){
+body:has(.mobile-nav){
     overflow-y: hidden;
 }
 

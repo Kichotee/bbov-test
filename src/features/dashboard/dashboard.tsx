@@ -134,7 +134,7 @@ const Dashboard = () => {
                   <div className="flex gap-2 items-center">
                     <div className="flex lg:text-sm text-xs items-center gap-3">
                       <BiCalendar />
-                      <p>5 Jun, 2022 - 5 Jul,2022</p>
+                      <p>5 Jun, 2023 - 5 Jul,2024</p>
                       <BiChevronDown />
                     </div>
                     <div className="flex text-sm items-center gap-3">
@@ -145,11 +145,11 @@ const Dashboard = () => {
                   <div className="flex items-center gap-4 text-sm">
                     <div className="flex gap-3 items-center">
                       <div className="w-3 h-3 border-red-500 border rounded-full" />
-                      <p>Germany</p>
+                      <p>John Stone inventory</p>
                     </div>
                     <div className="flex gap-3 items-center">
                       <div className="w-3 h-3 border-blue-700 border rounded-full" />
-                      <p>Nigeria</p>
+                      <p>Noremic</p>
                     </div>
                   </div>
                 </div>
