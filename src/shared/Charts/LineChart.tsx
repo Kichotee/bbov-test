@@ -41,7 +41,7 @@ const data: LineProps["data"] = {
   ],
   datasets: [
     {
-      label: "Nigeria",
+      label: "Noremic",
       data: [5, 7, 12, 10, 14, 12, 17, 28, 30, 32, 39, 41, 40],
       backgroundColor: "white",
       borderColor: "blue",
@@ -51,7 +51,7 @@ const data: LineProps["data"] = {
       // showLine:false
     },
     {
-      label: "Germany",
+      label: "John stone inventory",
       data: [8, 3, 9, 12, 16, 17, 24, 28, 34, 37, 42, 44, 43],
       backgroundColor: "white",
       borderColor: "red",
@@ -65,7 +65,7 @@ const data: LineProps["data"] = {
 const options: LineProps["options"] = {
   elements: {
     point: {
-      radius: 0,
+      radius: 2,
     },
   },
   plugins: {
