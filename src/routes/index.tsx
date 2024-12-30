@@ -1,7 +1,7 @@
 import React from "react";
 
 import { RouteObject, useRoutes } from "react-router-dom";
-import { Landing } from "@/features/misc";
+
 import { publicRoutes } from "./protected";
 
 import RequireAuth from "@/shared/RequireAuth/require-auth";
