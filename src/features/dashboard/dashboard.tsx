@@ -6,7 +6,6 @@ import { BiCalendar, BiCaretDown, BiCaretUp, BiChevronDown } from "react-icons/b
 import { format } from "date-fns";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { Switch } from "@headlessui/react";
-import Header from "@/layout/header";
 import LineChart from "@/shared/Charts/LineChart";
 import DataTable from "@/shared/Table/DataTable";
 import useTableParams from "@/hooks/use-table-params";
@@ -19,6 +18,8 @@ import { ViewDeal } from "./components/view-deal-modal";
 import { EditDealModal } from "./components/edit-deal-modal";
 import { TypeColumns } from "@/shared/Table/tableInterface";
 import { DeleteDealModal } from "./components/delete-modal";
+import { CreateDeal } from "./components/create-deal-modal";
+import { mostFrequent } from "@/utils/highest-frequency";
 
 interface ColumnProps {
   label: string | number;
@@ -114,7 +115,9 @@ const Dashboard = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentModal = searchParams.get("action");
-
+  const clients = deals?.map((data) => {
+    return data.client;
+  });
   return (
     <>
       <div className=" bg-white dark:bg-neutral-black">
@@ -145,7 +148,8 @@ const Dashboard = () => {
                   <div className="flex items-center gap-4 text-sm">
                     <div className="flex gap-3 items-center">
                       <div className="w-3 h-3 border-red-500 border rounded-full" />
-                      <p>John Stone inventory</p>
+                    {  // eslint-disable-next-line no-unsafe-optional-chaining
+                      <p>{mostFrequent(clients as string[], clients?.length as number +1)}</p>}
                     </div>
                     <div className="flex gap-3 items-center">
                       <div className="w-3 h-3 border-blue-700 border rounded-full" />
@@ -159,7 +163,7 @@ const Dashboard = () => {
             <div className="lg:border border-b px-4 py-3">
               <div className="flex flex-col gap-4">
                 <div className="flex w-full justify-between items-center">
-                  <h5 className="font-semibold  ">Recent Finances</h5>
+                  <h5 className="font-semibold text-text-main dark:text-text-offWhite/80 ">Recent Finances</h5>
                   <p className="text-xs text-neutral-bodyText">View all</p>
                 </div>
                 <div className="bg-[#ddd]/20  p-1.5 flex gap-6  rounded-lg ">
@@ -209,44 +213,55 @@ const Dashboard = () => {
                   <h5 className="font-semibold text-text-main dark:text-neutral-white/80 ">
                     Pipelines
                   </h5>
-                  <Button
-                    onClick={() => {
-                      return setBoard(!board);
-                    }}
-                    className="flex items-center text-xs gap-2 "
-                  >
-                    <div className="grid-cols-1 grid grid-rows-1 duration-200 relative">
-                      <p
-                        className={`col-span-1 absolute duraton-400 ${
-                          board ? "z-0 opacity-0" : "opacity-100 z-30"
-                        }`}
-                      >
-                        Table
-                      </p>
-                      <p className={`col-span-1  ${board ? "opacity-100 z-30" : "z-0 opacity-0"}`}>
-                        Board
-                      </p>
-                    </div>
-
-                    <Switch
-                      checked={board}
+                  <div className="flex items-center">
+                    <Button
                       onClick={() => {
                         return setBoard(!board);
                       }}
-                      className={`${
-                        board ? "bg-slate-200 shadow   border-transparent" : "bg-slate-300"
-                      }
-                          relative inline-flex h-[22px] w-[44px] shrink-0  inset-0 cursor-pointer rounded-full border-2  transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+                      className="flex items-center text-xs gap-2 "
                     >
-                      <span
-                        aria-hidden="true"
+                      <div className="grid-cols-1 grid grid-rows-1 duration-200 relative">
+                        <p
+                          className={`col-span-1 absolute duraton-400 ${
+                            board ? "z-0 opacity-0" : "opacity-100 z-30"
+                          }`}
+                        >
+                          Table
+                        </p>
+                        <p className={`col-span-1  ${board ? "opacity-100 z-30" : "z-0 opacity-0"}`}>
+                          Board
+                        </p>
+                      </div>
+                      <Switch
+                        checked={board}
+                        onClick={() => {
+                          return setBoard(!board);
+                        }}
                         className={`${
-                          board ? "translate-x-5 bg-white" : "translate-x-0.5 border shadow-sm"
+                          board ? "bg-slate-200 shadow   border-transparent" : "bg-slate-300"
                         }
-            pointer-events-none grid grid-cols-1 grid-rows-1 relative place-items-center bg-white h-[18px] w-[18px] transform rounded-full  shadow-lg ring-0 transition duration-200 ease-in-out`}
-                      />
-                    </Switch>
-                  </Button>
+                            relative inline-flex h-[22px] w-[44px] shrink-0  inset-0 cursor-pointer rounded-full border-2  transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className={`${
+                            board ? "translate-x-5 bg-white" : "translate-x-0.5 border shadow-sm"
+                          }
+                                pointer-events-none grid grid-cols-1 grid-rows-1 relative place-items-center bg-white h-[18px] w-[18px] transform rounded-full  shadow-lg ring-0 transition duration-200 ease-in-out`}
+                        />
+                      </Switch>
+                    </Button>
+                    <Button
+                    themeColor="main"
+                    variant="contained"
+                      onClick={() => {
+                        return setSearchParams({action:"create"})
+                      }}
+                      className="flex items-center text-xs gap-2 "
+                    >
+                    Add deal
+                    </Button>
+                  </div>
                 </div>
                 {board ? (
                   <BoardContainer cards={deals as Deals[]} />
@@ -267,6 +282,12 @@ const Dashboard = () => {
       </div>
       <ViewDeal
         open={currentModal == "view"}
+        onClose={() => {
+          setSearchParams();
+        }}
+      />
+      <CreateDeal
+        open={currentModal == "create"}
         onClose={() => {
           setSearchParams();
         }}
