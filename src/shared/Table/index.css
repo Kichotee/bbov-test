@@ -9,14 +9,22 @@
   tr{
     display:grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 16px;
+    gap: 4px;
     border-bottom:0px !important;
   }
   th, thead{
     display: none;
   }
   td{
-    height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  td::before{
+    content: attr(data-testid);
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
   tr,th,td{
     border-bottom: 0px !important;

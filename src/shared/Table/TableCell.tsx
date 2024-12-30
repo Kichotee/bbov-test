@@ -19,10 +19,10 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ children, className, sizes, width, ...props }, ref) => {
     return (
       <td
-        data-testid="shared-table-cell"
+        data-testid={props.headers}
         ref={ref}
         width={width}
-        className={`bg-transparent text-neutral-black py-3 dark:!text-white max-h-6 px-2 first:px-3 last:px-3 relative z-0 ${className}`}
+        className={`bg-transparent text-neutral-black py-3 dark:!text-white  px-2 first:px-3 last:px-3 relative z-0 ${className}`}
         {...props}
       >
         {children}
