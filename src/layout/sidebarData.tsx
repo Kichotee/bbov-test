@@ -1,7 +1,7 @@
 import React from "react";
 import {LuDatabase} from "react-icons/lu"
 import {BsBarChartLine, BsBookmark, BsMegaphone, BsTag} from "react-icons/bs"
-import {PiFileArchive, PiLightning, PiUsers} from "react-icons/pi"
+import { PiGear,  PiUser} from "react-icons/pi"
 import {CiLocationOn} from "react-icons/ci"
 import {LiaLocationArrowSolid} from "react-icons/lia"
 import {  BiGridAlt } from "react-icons/bi"
@@ -16,44 +16,40 @@ type SidebarLink = Array<{
 }>;
 
 export const DASHBOARD_SIDEBAR_LINKS: SidebarLink = [
-  // {
-  //   "menu":[{
-
-  //   }]
-  // },
+  
   {
-    key: "home",
-    label: "Home",
+    key: "Deals",
+    label: "Deals",
     path: "/dashboard/home",
     icon: <BiGridAlt size={18} />,
     allowedRoles: [0],
     visible: true,
   },
   {
-    key: "clients",
-    label: "Clients",
-    path: "/dashboard/home/",
-    icon: <PiUsers size={18} />,
+    key: "Settings",
+    label: "Settings",
+    path: "/dashboard/settings/",
+    icon: <PiGear size={18} />,
     allowedRoles: [0],
     visible: true,
   },
 
   {
-    key: "centers",
-    label: "Centers",
-    path: "/dashboard/home/",
-    icon: <PiFileArchive size={18} />,
+    key: "profile",
+    label: "profile",
+    path: "/dashboard/Profile/",
+    icon: <PiUser size={18} />,
     allowedRoles: [0],
     visible: true,
   },
-  {
-    key: "activity",
-    label: "Activity",
-    path: "/dashboard/home/",
-    icon: <PiLightning size={18} />,
-    allowedRoles: [0],
-    visible: true,
-  },
+  // {
+  //   key: "activity",
+  //   label: "Activity",
+  //   path: "/dashboard/home/",
+  //   icon: <PiLightning size={18} />,
+  //   allowedRoles: [0],
+  //   visible: true,
+  // },
  
  
 ];

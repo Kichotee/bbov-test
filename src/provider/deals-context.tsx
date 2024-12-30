@@ -28,85 +28,15 @@ export const DealContext = createContext<DealsContextProps>({
 });
 
 export const DealsProvider = ({ children }: IChildren) => {
-  const [deals, setDeals] = useState<Deals[]>([
-    {
-      id: Math.random() * 10000,
-      client: "John stone Hotel",
-      product: "John stone inventory",
-      created: Date.now(),
-      stage: "Lead Generated",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "Noremic ",
-      product: "SteelWorks product",
-      created: Date.now(),
-      stage: "Completed",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "John stone Hotel",
-      product: "John stone inventory",
-      created: Date.now(),
-      stage: "Application Submitted",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "Noremic ",
-      product: "SteelWorks product",
-      created: Date.now(),
-      stage: "Application Under Review",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "John stone Hotel",
-      product: "John stone inventory",
-      created: Date.now(),
-      stage: "Contacted",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "Noremic ",
-      product: "SteelWorks product",
-      created: Date.now(),
-      stage: "Lost",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "Prolife",
-      product: "Supplements",
-      created: Date.now(),
-      stage: "Payment Confirmed",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-    {
-      id: Math.round(Math.random() * 10000),
-      client: "Traile",
-      product: "SteelWorks product",
-      created: Date.now(),
-      stage: "Deal Finalized",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quis alias placeat, reiciendis eligendi eaque laborum ipsam eos enim laudantium voluptate nesciunt! Hic pariatur assumenda iste in eligendi voluptatem voluptatibus.",
-    },
-  ]);
+  const [deals, setDeals] = useState<Deals[]>(JSON.parse(localStorage.getItem("Deals") as string));
+
+ 
 
   const pushDeal = (deal: Deals) => {
     setDeals((prev) => {
       return [deal, ...prev];
     });
+    localStorage.setItem("Deals", JSON.stringify(deals));
   };
   const removeDeal = (oldDeal: Deals) => {
     setDeals((prev) => {
@@ -114,6 +44,7 @@ export const DealsProvider = ({ children }: IChildren) => {
         return deal.id !== oldDeal.id;
       });
     });
+    localStorage.setItem("Deals", JSON.stringify(deals));
   };
   const editDeal = (deal: Deals) => {
     setDeals((prev) => {
@@ -123,6 +54,7 @@ export const DealsProvider = ({ children }: IChildren) => {
         return lead.id === deal.id ? deal : lead;
       });
     });
+    localStorage.setItem("Deals", JSON.stringify(deals));
   };
 
   const contextValue = {

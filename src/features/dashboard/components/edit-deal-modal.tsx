@@ -58,19 +58,37 @@ const options=leadStatuses.map((data)=>{
         label:data,
         value:data
     }
-})
+});
+
+const products = deals?.map((data) => {
+  return data.product;
+});
+const clients = deals?.map((data) => {
+  return data.client;
+});
   return (
     <ModifiedDialog  open={open} onClose={onClose} actionText="Edit Deal" onAction={updateDeal}>
       <div className="flex flex-col gap-2 ">
-        <ControlledOutlineInput 
-          defaultValue={deal?.product}
-        
-        control={control} name="product" fullWidth label="Product" />
-        <ControlledOutlineInput
+      <ModifiedControlledSelect
+          options={[...new Set(products)]?.map((data) => {
+            return {
+              label: data,
+              value: data,
+            };
+          })}
           control={control}
-          defaultValue={deal?.client}
+          name="product"
+          label="Product"
+        />
+        <ModifiedControlledSelect
+          options={[...new Set(clients)]?.map((data) => {
+            return {
+              label: data,
+              value: data,
+            };
+          })}
+          control={control}
           name="client"
-          fullWidth
           label="Client"
         />
         <ControlledOutlineInput
